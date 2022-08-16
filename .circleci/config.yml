@@ -11,12 +11,25 @@ jobs:
       - run :
           name: build nodejs app
           command: |
-              npm install -y
-              npm run build -y
+              npm install 
+              npm run build 
 
+  test:
+    docker:
+      image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run :
+          name: test nodejs app
+          command: |
+              npm install 
+              npm run test
 
 workflows:
   say-hello-workflow:
     jobs:
       - build
+      - test:
+          requires: [build]
+
     
