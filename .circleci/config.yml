@@ -11,8 +11,8 @@ jobs:
       - run :
           name: build nodejs app
           command: |
-              npm install 
-              npm run build 
+              npm i
+              npm run lint
 
   test:
     docker:
@@ -22,11 +22,11 @@ jobs:
       - run :
           name: test nodejs app
           command: |
-              npm install 
+              npm i
               npm run test
 
 workflows:
-  say-hello-workflow:
+  CI_NODEJS:
     jobs:
       - build
       - test:
