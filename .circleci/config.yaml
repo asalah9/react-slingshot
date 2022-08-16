@@ -13,4 +13,10 @@ jobs:
           command: |
               npm install -y
               npm run build -y
-              
+
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - build
+    
